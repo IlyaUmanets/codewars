@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 # kata - https://www.codewars.com/kata/52742f58faf5485cae000b9a
 
 def format_duration(seconds)
   return 'now' if seconds.zero?
 
-  years, days = seconds.divmod(31536000)
-  days, hours = days.divmod(86400)
+  years, days = seconds.divmod(31_536_000)
+  days, hours = days.divmod(86_400)
   hours, minutes = hours.divmod(3600)
   minutes, seconds = minutes.divmod(60)
 

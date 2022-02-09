@@ -1,10 +1,10 @@
-# kata - https://www.codewars.com/kata/5941c545f5c394fef900000c
-
 # frozen_string_literal: true
+
+# kata - https://www.codewars.com/kata/5941c545f5c394fef900000c
 
 class Warrior
   attr_accessor :experience_instance, :level_instance,
-    :rank_instance, :achievements
+                :rank_instance, :achievements
 
   def initialize
     self.experience_instance = Experience.new
@@ -35,10 +35,10 @@ class Warrior
 end
 
 class Battle
-  GOOD_FIGHT = 'A good fight'.freeze
-  EASY_FIGHT = 'Easy fight'.freeze
-  DEFEATED = "You've been defeated".freeze
-  INTENSE_FIGHT = 'An intense fight'.freeze
+  GOOD_FIGHT = 'A good fight'
+  EASY_FIGHT = 'Easy fight'
+  DEFEATED = "You've been defeated"
+  INTENSE_FIGHT = 'An intense fight'
 
   attr_accessor :warrior, :enemy_level, :battle_report, :earned_points
 
@@ -84,7 +84,9 @@ class Battle
   end
 
   def check_for_defeated_fight!
-    return unless diff_level <= -5 && warrior.rank != Rank.new(Level.new(Experience.new(enemy_level * 100))).rank
+    unless diff_level <= -5 && warrior.rank != Rank.new(Level.new(Experience.new(enemy_level * 100))).rank
+      return
+    end
 
     self.battle_report = DEFEATED
   end
@@ -186,7 +188,7 @@ end
 
 class Rank
   RANKS = %w[Pushover Novice Fighter Warrior Veteran Sage
-    Elite Conqueror Champion Master Greatest].freeze
+             Elite Conqueror Champion Master Greatest].freeze
 
   attr_accessor :level
 
